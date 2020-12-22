@@ -8,4 +8,4 @@
 
 ## Contents
 
-* [Level 1] (https://github.com/maetdori/Programmers/tree/main/src/level1)
+* [Level 1](https://github.com/maetdori/Programmers/tree/main/src/level1)
