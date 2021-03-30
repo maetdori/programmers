@@ -30,13 +30,16 @@ class Solution {
             
             int lIdx = leftIdx(i, popped);
             int rIdx = rightIdx(i, popped);
-
+            
+            //찬스를 이미 사용한 경우
             if(chance == 0) {
                 if(mustUseChance(i, lIdx, rIdx))
                     continue;
                 popped[i] = true;
                 dfs(depth+1, 0, popped);
             }
+	
+            //찬스를 사용할 수 있는 경우
             else {
                 popped[i] = true;
                 if(mustUseChance(i, lIdx, rIdx))
@@ -54,6 +57,7 @@ class Solution {
         }
     }
     
+    //찬스를 반드시 사용해야 하는 경우 true를 리턴
     private boolean mustUseChance(int idx, int lIdx, int rIdx) {
         if(lIdx == -1 && balloon[idx] < balloon[rIdx])
             return true;
@@ -65,6 +69,7 @@ class Solution {
         return false;
     }
     
+    //찬스를 사용할 수 없는 경우 true를 리턴
     private boolean canNotUseChance(int idx, int lIdx, int rIdx) {
         if(lIdx == -1 && balloon[idx] > balloon[rIdx])
             return true;
@@ -76,6 +81,7 @@ class Solution {
         return false;
     }
     
+    //idx 왼쪽의 터지지 않은 풍선 중 가장 가까운 것의 index를 리턴
     private int leftIdx(int idx, boolean[] popped) {
         int left = idx-1;
         
@@ -87,6 +93,7 @@ class Solution {
         return left;
     }
     
+    //idx 오른쪽의 터지지 않은 풍선 중 가장 가까운 것의 index를 리턴
     private int rightIdx(int idx, boolean[] popped) {
         int right = idx+1;
 
