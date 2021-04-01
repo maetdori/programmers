@@ -42,7 +42,6 @@ class Solution {
                 int chance = now.chance;
                 int popNum = now.popNum;
                 boolean[] popped = now.popped;
-                //System.out.println(now.idx + ": " + chance + " chance left, " + popNum + " popped");
                 
                 if(popNum == ball.length-1) {
                     for(int j=0; j<popped.length; j++) {
@@ -90,6 +89,7 @@ class Solution {
             
     }
     
+    //찬스를 반드시 사용해야 하는 경우 true를 리턴
     private boolean mustUseChance(int idx, int lIdx, int rIdx) {
         if(lIdx == -1 && ball[idx] < ball[rIdx])
             return true;
@@ -101,6 +101,7 @@ class Solution {
         return false;
     }
     
+    //찬스를 사용할 수 없는 경우 true를 리턴
     private boolean canNotUseChance(int idx, int lIdx, int rIdx) {
         if(lIdx == -1 && ball[idx] > ball[rIdx])
             return true;
@@ -112,6 +113,7 @@ class Solution {
         return false;
     }
     
+    //idx 왼쪽의 터지지 않은 풍선 중 가장 가까운 것의 index를 리턴
     private int leftIdx(int idx, boolean[] popped) {
         int left = idx-1;
         
@@ -123,6 +125,7 @@ class Solution {
         return left;
     }
     
+    //idx 오른쪽의 터지지 않은 풍선 중 가장 가까운 것의 index를 리턴
     private int rightIdx(int idx, boolean[] popped) {
         int right = idx+1;
 
