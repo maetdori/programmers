@@ -56,7 +56,7 @@ class Solution {
         return true;
     }
     
-    //시계방향으로 90도 90도 회전
+    //시계방향으로 90도 회전
     private int[][] rotate(int M, int[][] key) {
         int[][] rotated = new int[M][M];
         
