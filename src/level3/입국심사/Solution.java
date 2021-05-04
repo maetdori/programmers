@@ -1,5 +1,9 @@
+import java.util.*;
+
 class Solution {
     public long solution(int n, int[] times) {
+        Arrays.sort(times);
+        
         long answer = Long.MAX_VALUE;
         long start = times[0];
         long end = (long)times[times.length-1] * n;
